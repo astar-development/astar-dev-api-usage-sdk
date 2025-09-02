@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Api.Usage.Sdk</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration">
+            <summary>
+                Represents the configuration settings for API usage, including connection and authentication details.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration.ConfigurationSectionName">
+            <summary>
+                Specifies the name of the configuration section used to load settings for the
+                <see cref="T:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration"/>
+                class.
+                This property provides a consistent identifier for the configuration section within
+                application configuration files, such as appsettings.json.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration.HostName">
+            <summary>
+                Specifies the host name used for connecting to the API in the
+                <see cref="T:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration"/>
+                class.
+                This property represents the endpoint or server address where the API service is hosted.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration.UserName">
+            <summary>
+                Represents the username required for authentication within the
+                <see cref="T:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration"/>
+                class.
+                This property is essential for establishing a connection to the API or associated services.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration.Password">
+            <summary>
+                Represents the password used for authenticating with the API. This property must be provided
+                as part of the configuration settings to ensure secure access to the API.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration.QueueName">
+            <summary>
+                Defines the name of the queue used for messaging or task distribution in the API usage configuration.
+                This property is required to identify the specific queue for sending and receiving messages
+                within the system's messaging infrastructure.
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent">
+            <summary>
+            </summary>
+            <param name="ApiName"></param>
+            <param name="ApiEndpoint"></param>
+            <param name="HttpMethod"></param>
+            <param name="ElapsedMilliseconds"></param>
+            <param name="StatusCode"></param>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.#ctor(System.String,System.String,System.String,System.Double,System.Int32)">
+            <summary>
+            </summary>
+            <param name="ApiName"></param>
+            <param name="ApiEndpoint"></param>
+            <param name="HttpMethod"></param>
+            <param name="ElapsedMilliseconds"></param>
+            <param name="StatusCode"></param>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.ApiName">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.ApiEndpoint">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.HttpMethod">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.ElapsedMilliseconds">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.StatusCode">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.Id">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.Timestamp">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName"/>
+                interface contains additional information for logging the API Usage.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName.Name">
+            <summary>
+                Gets the name of the Endpoint.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName.HttpMethod">
+            <summary>
+                Gets the HTTP Method type of the Endpoint.
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler">
+            <summary>
+            </summary>
+            <param name="next"></param>
+            <param name="logger"></param>
+            <param name="send"></param>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler},AStar.Dev.Api.Usage.Sdk.Send)">
+            <summary>
+            </summary>
+            <param name="next"></param>
+            <param name="logger"></param>
+            <param name="send"></param>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandlerExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandlerExtensions.UseMetrics(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.Send">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Send.#ctor(RabbitMQ.Client.IConnection,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Api.Usage.Sdk.Send},Microsoft.Extensions.Options.IOptions{AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Send.SendUsageEventAsync(AStar.Dev.Api.Usage.Sdk.ApiUsageEvent,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="usageEvent"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.ServiceCollectionExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.ServiceCollectionExtensions.AddUsageServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.ConfigurationManager,System.Reflection.Assembly)">
+            <summary>
+            </summary>
+            <param name="services"></param>
+            <param name="configurationManager"></param>
+            <param name="executingAssembly"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
