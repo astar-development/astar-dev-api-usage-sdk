@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/.github/">
+    <File Path=".github\dependabot.yml" />
+  </Folder>
+  <Folder Name="/.github/workflows/">
+    <File Path=".github\workflows\dotnet.yml" />
+    <File Path=".github\workflows\publish.yml" />
+  </Folder>
+  <Folder Name="/Solution Items/" />
+  <Folder Name="/src/">
+    <Project Path="src\AStar.Dev.Api.Usage.Sdk\AStar.Dev.Api.Usage.Sdk.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/test/" />
+</Solution>
