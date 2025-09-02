@@ -14,7 +14,11 @@ public static class ServiceCollectionExtensions
     /// <param name="configurationManager"></param>
     /// <param name="executingAssembly"></param>
     /// <returns></returns>
+
+    // ReSharper disable once UnusedParameter.Global
+#pragma warning disable IDE0060
     public static IServiceCollection AddUsageServices(this IServiceCollection services, ConfigurationManager configurationManager, Assembly executingAssembly)
+#pragma warning restore IDE0060
     {
         // services.AddMediatR(cfg =>
         //           {
@@ -22,9 +26,9 @@ public static class ServiceCollectionExtensions
         //        .AddOpenBehavior(typeof(UsageMetricHandler<,>));
         //           });
 
-        services.AddSingleton<Send>();
+        _ = services.AddSingleton<Send>();
 
-        services
+        _ = services
             .AddOptions<ApiUsageConfiguration>()
             .Bind(configurationManager.GetSection(ApiUsageConfiguration.ConfigurationSectionName));
 

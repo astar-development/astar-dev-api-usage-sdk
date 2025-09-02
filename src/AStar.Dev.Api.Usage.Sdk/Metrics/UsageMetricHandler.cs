@@ -38,7 +38,7 @@ public sealed class UsageMetricHandler(RequestDelegate next, ILogger<UsageMetric
         catch(Exception ex)
         {
             // nameof(UsageMetricHandler) - feels pointless
-            LogMessage.LogException(logger, nameof(UsageMetricHandler), ex.GetType().Name, ex.GetBaseException().Message, ex.StackTrace?? string.Empty);
+            LogMessage.LogException(logger, nameof(UsageMetricHandler), ex.GetType().Name, ex.GetBaseException().Message, ex.StackTrace ?? string.Empty);
         }
     }
 
@@ -49,7 +49,9 @@ public sealed class UsageMetricHandler(RequestDelegate next, ILogger<UsageMetric
             return apiName;
         }
 
-        logger.LogDebug("Updating host.docker.internal - doubt this ever happens as 99.999999% sure this is a long gone requirement. I'm just not in the mood to dig now...");
+        LogMessage.Debug(logger, "Need to revisit this to see if it is required",
+                         "Updating host.docker.internal - doubt this ever happens as 99.999999% sure this is a long gone requirement. I'm just not in the mood to dig now...");
+
         apiName = "astar.dev.images.api";
 
         return apiName;
