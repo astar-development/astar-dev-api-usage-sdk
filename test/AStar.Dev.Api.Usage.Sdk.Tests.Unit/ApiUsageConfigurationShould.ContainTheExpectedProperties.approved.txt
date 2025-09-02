@@ -1,0 +1,6 @@
+﻿{
+  "hostName": "Mock host name",
+  "userName": "Mock User name",
+  "password": null,
+  "queueName": "Mock Queue name"
+}
